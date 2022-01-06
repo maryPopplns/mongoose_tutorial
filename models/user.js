@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var mongoose = require('mongoose');
 
 var SALT_FACTOR = 10;
 
@@ -10,10 +10,6 @@ var userSchema = mongoose.Schema({
   displayName: String,
   bio: String,
 });
-
-userSchema.methods.name = function () {
-  return this.displayName || this.username;
-};
 
 var noop = function () {};
 userSchema.pre('save', function (done) {
@@ -34,3 +30,17 @@ userSchema.pre('save', function (done) {
     });
   });
 });
+
+userSchema.methods.checkPassword = function (guess, done) {
+  bcrypt.compare(guess, this.password, function (err, isMatch) {
+    done(err, isMatch);
+  });
+};
+
+userSchema.methods.name = function () {
+  return this.displayName || this.username;
+};
+
+var User = mongoose.model('User', userSchema);
+
+module.exports = User;
