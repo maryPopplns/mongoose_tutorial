@@ -1,0 +1,20 @@
+{
+  "name": "mongoose_tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maryPopplns/mongoose_tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maryPopplns/mongoose_tutorial/issues"
+  },
+  "homepage": "https://github.com/maryPopplns/mongoose_tutorial#readme"
+}
